@@ -1,0 +1,51 @@
+{
+  "name": "@aizigao/tools",
+  "version": "0.0.1",
+  "description": "personal cli tools assemble",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aizigao/tools"
+  },
+  "bin": {
+    "@aizigao/tools": "bin/tools",
+    "azg-tools": "bin/tools"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npm publish --registry https://registry.npmjs.org/ --access public"
+  },
+  "author": "aizigao",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "clear": "^0.1.0",
+    "consolidate": "^0.16.0",
+    "dayjs": "^1.10.4",
+    "esm": "^3.2.25",
+    "execa": "^5.0.0",
+    "figlet": "^1.5.0",
+    "find-up": "^5.0.0",
+    "fs-extra": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "inquirer": "^8.1.0",
+    "klaw": "^3.0.0",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "ora": "^5.4.0",
+    "pkg-install": "^1.0.0",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}
