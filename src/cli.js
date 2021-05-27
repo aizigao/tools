@@ -31,7 +31,7 @@ export async function cli(rawArgs) {
       }
     )
     .command(
-      'tiny-img [source] [-c | --config]',
+      'tiny-img [source] [output]',
       '压缩图片 (支持svg)',
       (yargsSub) => {
         yargsSub
@@ -45,9 +45,13 @@ export async function cli(rawArgs) {
             describe: '文件目录',
             type: 'string',
           })
+          .positional('output', {
+            describe: '输出目录',
+            type: 'string',
+          })
       },
       async (argv) => {
-        // console.log(argv)
+        console.log({ argv })
         tinyImg(argv)
       }
     )

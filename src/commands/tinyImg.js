@@ -6,7 +6,7 @@ import os from 'os'
 import inquirer from 'inquirer'
 import klaw from 'klaw'
 import tinify from 'tinify'
-import { getExtFromFilePath, getFileSizeInMegabytes } from '../utils'
+import { getExtFromFilePath, getFileSizeInMegabytes, fixPath } from '../utils'
 import { optimize as svgoOptimize } from 'svgo'
 
 const configDir = path.join(os.homedir(), '.config')
@@ -38,7 +38,7 @@ const getConfig = async (options) => {
 }
 
 const tinifyIt = async (options) => {
-  const { source, tinifyKey } = options
+  const { source, output, tinifyKey } = options
 
   // jpg, png 文件
   const imgsfiles = []
@@ -86,7 +86,26 @@ const tinifyIt = async (options) => {
 
           const result = svgoOptimize(content, {})
           const optimizedSvgString = result.data
-          fs.writeFileSync(filePath, optimizedSvgString)
+          const sourceDirname = path.dirname(filePath)
+          const baseName = path.basename(filePath)
+
+          const targetDirName = sourceDirname.replace(source, output)
+
+          const targetPath = path.join(targetDirName, baseName)
+
+          console.log({
+            filePath,
+            sourceDirname,
+            targetDirName,
+            baseName,
+            output,
+            targetPath,
+          })
+
+          if (!fs.ensureDirSync(targetDirName)) {
+            fs.mkdirpSync(targetDirName)
+          }
+          fs.writeFileSync(targetPath, optimizedSvgString)
         }
         console.log(
           `${chalk.green('ok')}: %s [%s][%s]`,
@@ -100,18 +119,18 @@ const tinifyIt = async (options) => {
 }
 
 export async function tinyImg(options) {
-  const { source } = options
+  const { source, output } = options
   const config = await getConfig(options)
 
-  const rSource = path.isAbsolute(source)
-    ? source
-    : path.join(process.cwd(), source)
+  const rSource = fixPath(source)
+  const rOutput = fixPath(output || source)
+
   if (!fs.pathExistsSync(rSource)) {
     console.error(chalk.red('路径不存在!!'))
     process.exit(-1)
   }
 
-  const newOptions = { ...options, ...config, source: rSource }
+  const newOptions = { ...options, ...config, source: rSource, output: rOutput }
   await tinifyIt(newOptions)
   console.log('-------------------------')
   console.log(`${chalk.green('处理完成')}`)

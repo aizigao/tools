@@ -17,3 +17,18 @@ npx @aizigao/tools
 ```bash
 npx @aizigao/tools -h
 ```
+
+
+
+```
+Usage: azg-tools <command> [args...]
+
+Commands:
+  azg-tools lsqr [--port | -p] [--host]     生成网页二维码
+  azg-tools tiny-img [source] [-c |         压缩图片 (支持svg)
+  --config]
+
+Options:
+      --version  Show version number                                   [boolean]
+  -h, --help     Show help                                             [boolean]
+```

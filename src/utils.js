@@ -1,4 +1,5 @@
 import fs from 'fs-extra'
+import path from 'path'
 import filesize from 'filesize'
 
 export const getExtFromFilePath = (filePath) => {
@@ -8,4 +9,8 @@ export const getExtFromFilePath = (filePath) => {
 export function getFileSizeInMegabytes(filename) {
   const stats = fs.statSync(filename)
   return filesize(stats.size)
+}
+
+export const fixPath = (source) => {
+  return path.isAbsolute(source) ? source : path.join(process.cwd(), source)
 }
