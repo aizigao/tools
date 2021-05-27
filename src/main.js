@@ -1,4 +1,4 @@
-import { lsqr } from './modules/lsqr'
-import { tinyImg } from './modules/tinyImg'
+import { lsqr } from './commands/lsqr'
+import { tinyImg } from './commands/tinyImg'
 
 export { lsqr, tinyImg }
