@@ -35,5 +35,4 @@ export async function lsqr(options) {
 
   console.log('\n 当前地址: %s\n', chalk.green(qrCodehref))
   genQRcode(qrCodehref, options.small)
-  process.exit(0)
 }

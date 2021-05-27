@@ -25,25 +25,29 @@ export async function cli(rawArgs) {
             type: 'boolean',
             default: false,
           })
-          .help()
       },
       (argv) => {
         lsqr(argv)
       }
     )
     .command(
-      'tiny-img [--config|-c] <path>',
+      'tiny-img [source] [-c | --config]',
       '压缩图片 (支持svg)',
       (yargsSub) => {
         yargsSub
-          .positional('config', {
-            describe: '端口',
+          .option('config', {
+            describe: '进行配置',
             type: 'boolean',
+            default: false,
             alias: 'c',
           })
-          .help()
+          .positional('source', {
+            describe: '文件目录',
+            type: 'string',
+          })
       },
-      (argv) => {
+      async (argv) => {
+        // console.log(argv)
         tinyImg(argv)
       }
     )
