@@ -1288,6 +1288,11 @@ load-json-file@^4.0.0:
     pify "^3.0.0"
     strip-bom "^3.0.0"
 
+local-ip@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/local-ip/-/local-ip-2.0.0.tgz#28fb7105df418506312462808daa6c8f8f2578dc"
+  integrity sha1-KPtxBd9BhQYxJGKAjapsj48leNw=
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/locate-path/download/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -1683,6 +1688,11 @@ punycode@^2.1.0:
   version "2.1.1"
   resolved "https://registry.nlark.com/punycode/download/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
+
+qrcode-terminal@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/qrcode-terminal/-/qrcode-terminal-0.12.0.tgz#bb5b699ef7f9f0505092a3748be4464fe71b5819"
+  integrity sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==
 
 read-pkg-up@^3.0.0:
   version "3.0.0"

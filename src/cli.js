@@ -20,6 +20,11 @@ export async function cli(rawArgs) {
             describe: 'host域名',
             type: 'string',
           })
+          .positional('small', {
+            describe: '生成小号二维码',
+            type: 'boolean',
+            default: false,
+          })
           .help()
       },
       (argv) => {
