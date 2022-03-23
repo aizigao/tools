@@ -52,15 +52,14 @@ export async function cli(rawArgs) {
       }
     )
     .command(
-      'i18n [cn] [en] [-f | --force] [-s | --store]',
+      'i18n [cn] [en] [-f | --force] [--init]',
       '生成 i18n',
       (yargsSub) => {
         yargsSub
-          .option('config', {
-            describe: '设置存储目录',
-            type: 'string',
-            default: './i18n',
-            alias: 'c',
+          .option('init', {
+            describe: '初始化配置',
+            type: 'boolean',
+            default: false,
           })
           .positional('cn', {
             describe: '中文文案',
