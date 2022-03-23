@@ -21,14 +21,17 @@ npx @aizigao/tools -h
 
 
 ```
-Usage: azg-tools <command> [args...]
+Usage: tools <command> [args...]
 
 Commands:
-  azg-tools lsqr [--port | -p] [--host]     生成网页二维码
-  azg-tools tiny-img [source] [-c |         压缩图片 (支持svg)
-  --config]
+  tools lsqr [--port | -p] [--host]         生成网页二维码
+  tools tiny-img [source] [-c | --config]   压缩图片 (支持svg)
+  tools i18n [cn] [en] [-f | --force]       生成 i18n
+  [--init]
 
 Options:
       --version  Show version number                                   [boolean]
   -h, --help     Show help                                             [boolean]
+
+Not enough non-option arguments: got 0, need at least 1
 ```
