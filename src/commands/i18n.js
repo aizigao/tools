@@ -124,7 +124,7 @@ async function translate(options) {
     console.log(`------------ end ${count}, to ${toCode} ------------\n\n\n`)
     count += 1
   }
-  console.log(chalk.green('okkkkkkkkkkkkk'))
+  console.log(chalk.green('ok finished 😚!!!!!!!!!!!!!!!!!!!!!!!'))
 }
 
 async function initProj() {
@@ -164,7 +164,8 @@ export async function i18n(options) {
   if (init) {
     initProj()
   } else if (!store.has('i18n')) {
-    console.log('请先初始化项目')
+    console.log('请先初始化项目\n')
+    console.log('npx @aizigao/tools i18n --init')
     process.exit(-999)
   } else {
     await translate(options)
