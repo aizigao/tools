@@ -1,6 +1,6 @@
 {
   "name": "@aizigao/tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "personal cli tools assemble",
   "module": "src/main.js",
   "repository": {
