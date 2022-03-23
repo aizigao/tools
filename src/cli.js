@@ -1,5 +1,5 @@
 import yargs from 'yargs/yargs'
-import { lsqr, tinyImg } from './main'
+import { lsqr, tinyImg, i18n } from './main'
 
 export async function cli(rawArgs) {
   // eslint-disable-next-line no-unused-expressions
@@ -49,6 +49,37 @@ export async function cli(rawArgs) {
       async (argv) => {
         // console.log(argv)
         tinyImg(argv)
+      }
+    )
+    .command(
+      'i18n [cn] [en] [-f | --force] [-s | --store]',
+      '生成 i18n',
+      (yargsSub) => {
+        yargsSub
+          .option('config', {
+            describe: '设置存储目录',
+            type: 'string',
+            default: './i18n',
+            alias: 'c',
+          })
+          .positional('cn', {
+            describe: '中文文案',
+            type: 'string',
+          })
+          .positional('force', {
+            describe: '强制写入',
+            type: 'boolean',
+            default: false,
+            alias: 'f',
+          })
+          .positional('en', {
+            describe: '英文文案',
+            type: 'string',
+          })
+          .help()
+      },
+      async (argv) => {
+        i18n(argv)
       }
     )
     .demandCommand()
