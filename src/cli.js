@@ -1,5 +1,5 @@
 import yargs from 'yargs/yargs'
-import { lsqr, tinyImg, i18n } from './main'
+import { lsqr, tinyImg, greyImg, i18n } from './main'
 
 export async function cli(rawArgs) {
   // eslint-disable-next-line no-unused-expressions
@@ -28,6 +28,14 @@ export async function cli(rawArgs) {
       },
       (argv) => {
         lsqr(argv)
+      }
+    )
+    .command(
+      'grey-img [source] ',
+      '图片去色',
+      (yargsSub) => {},
+      async (argv) => {
+        greyImg(argv)
       }
     )
     .command(
