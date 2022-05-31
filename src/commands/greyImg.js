@@ -16,8 +16,6 @@ const greyImgInner = async (options) => {
     const ext = getExtFromFilePath(file.path)
     if (/^(png|jpg|jpeg)$/.test(ext)) {
       imgsfiles.push({ path: file.path, type: 'common' })
-    } else if (ext === 'svg') {
-      imgsfiles.push({ path: file.path, type: 'svg' })
     }
   }
 
@@ -28,12 +26,24 @@ const greyImgInner = async (options) => {
     console.log(chalk.yellow(`文件总数 ${imgsfiles.length}`))
     console.log('------------------------------')
 
+    const errors = []
     await Promise.all(
       imgsfiles.map(async ({ path: filePath, type }) => {
-        await sharp(filePath).toFile(filePath)
+        // console.log('filePath', filePath, type)
+        await sharp(filePath)
+          .greyscale()
+          .toBuffer((err, buffer) => {
+            if (err) {
+              errors.push(err)
+            }
+            fs.writeFile(filePath, buffer, (e) => {})
+          })
         console.log(`已处理: ${filePath}`)
       })
     )
+    if (errors.length) {
+      console.log(errors)
+    }
   }
 }
 

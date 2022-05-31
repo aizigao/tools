@@ -31,7 +31,7 @@ export async function cli(rawArgs) {
       }
     )
     .command(
-      'grey-img [source] ',
+      'grey-img source',
       '图片去色',
       (yargsSub) => {},
       async (argv) => {
